@@ -1,4 +1,3 @@
-
 <style>
   .container {
     margin-top: 0rem;
@@ -12,66 +11,72 @@
     }
   }
 
-  .centeredButton{
+  .centeredButton {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     margin: 50px;
   }
-
 </style>
-<br><br><br>
-<h1 style="text-align: center; color:white;">Welcome to Trello!</h1><br>
+
+<br>
+<br>
+<br>
+<h1 style="text-align: center; color:white;">Welcome to Trello!</h1>
+<br>
 <h1 style="text-align: center; color:white;">Log in to Trello</h1>
-<h5 style="text-align: center; color:white;"> or <span style="color:#52a5cb;"><u>create an account</u> </span></h5>
+<h5 style="text-align: center; color:white;"> or
+  <a href="/login/signup" style="color:#52a5cb;">
+    <u>Create a new account</u>
+  </a>
+</h5>
 
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-    
-
-                <form #loginform="ngForm" (ngSubmit)= "loginsub(loginform.value)">
-
-                  <div class="form-group">
-                    <label for="email" style="color: white; font-weight: 600">Email <span style="color:#52a5cb;">(or username)</span></label>
-                    <input type="email" name="email" #username="ngModel"  ngModel required class="form-control" >
-                  </div>
-
-                  <div class="form-group">  
-                    <label for="pwd" style="color: white; font-weight: bold">Password:</label>
-                    <input type="password" name="password" ngModel required class="form-control" >
-                  </div>
-                  <div *ngIf="username.errors">
-                    <small *ngIf="username.errors.required && username.touched">username is required</small>
-                    <small *ngIf="username.errors.minlength && username.dirty" class="bg-info">
-                      {{username.errors.minlength.requiredLength-username.errors.minlength.actualLength}} more characters
-                    </small>
-                  </div>
-              
-                  <div class="centeredButton" >
-                  <button type="submit" class="btn btn-success" [disabled]="loginform.invalid" >Log In</button>
-                </div>
-
-                
-<!-- <button (click)="socialSignIn('google')">Sign in with Google</button> -->
-                </form>
-
-                <div class="centeredButton">
-                <a href="#" style="color:#52a5cb;"><b><u>Forgot your password?</u></b></a>
-                </div>
-
-                <br><br><br><br><br><br><br>
-               
 
 
+      <form #loginform="ngForm" (ngSubmit)="loginsub(loginform.value)">
+
+        <div class="form-group">
+          <label for="email" style="color: white; font-weight: 600">Email
+            <!-- <span style="color:#52a5cb;">(or username)</span> -->
+          </label>
+          <input type="email" name="email" #username="ngModel" ngModel required class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="pwd" style="color: white; font-weight: bold">Password</label>
+          <input type="password" name="password" ngModel required class="form-control">
+        </div>
+        <div *ngIf="username.errors">
+          <small *ngIf="username.errors.required && username.touched">username is required</small>
+          <small *ngIf="username.errors.minlength && username.dirty" class="bg-info">
+            {{username.errors.minlength.requiredLength-username.errors.minlength.actualLength}} more characters
+          </small>
+        </div>
+
+        <div class="centeredButton">
+          <button type="submit" class="btn btn-success" [disabled]="loginform.invalid">Log In</button>
+        </div>
 
 
+        <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <div class="g-signin2" data-onsuccess="onSignIn">
+          <button (click)="socialSignIn('google')">Sign in with Google</button>
+        </div> -->
+      </form>
 
+      <div class="centeredButton">
+        <a href="#" style="color:#52a5cb;">
+          <b>
+            <u>Forgot your password?</u>
+          </b>
+        </a>
+      </div>
+      <br>
+      <br>
 
-
-
-
-
-    </div>    
+    </div>
   </div>
 </div>
 
